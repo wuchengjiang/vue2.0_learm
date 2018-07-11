@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>初识Vue组件</h1>
+    <div id="vue-app-one">
+        <greeting></greeting>
+    </div>
+    <div id="vue-app-two">
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    Vue.component("greeting",{
+        template:`
+        <p>
+            {{name}}:hello world
+            <button v-on:click="changeName">改名</button>
+        </p>
+        `,
+        data:function(){
+            return {
+                name:'村长'
+            }
+        },
+        methods:{
+            changeName:function(){
+                this.name = '老王'
+            }
+        }
+    })
+
+    new Vue({
+        el:'#vue-app-one',
+
+    });
+
+    new Vue({
+        el:'#vue-app-two',
+
+    });
+</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #canvan{
+        width: 600px;
+        padding: 200px 20px;
+        text-align: center;
+        border: 1px solid #333
+
+    }
+    </style>
+</head>
+<body>
+    <div id="vue-app">
+        <button v-on:click.once='add(1)'>加一岁</button>
+        <button v-on:click='substract(1)'>减一岁</button>
+        <button v-on:dblclick='add(10)'>加十岁</button>
+        <button v-on:dblclick='substract(10)'>减十岁</button>
+        <p>My age is {{age}}</p>
+        <div id="canvan" v-on:mousemove="XY">
+            {{x}}-{{y}} - <span v-on:mousemove.stop='stopmove'>Stop Move</span>
+        </div>
+        <a v-on:click.prevent="alert()" href="http://www.baidu.com">网站导航</a>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#vue-app',
+        data:{
+            age:30,
+            x:0,
+            y:0
+        },
+        methods:{
+            add:function(one){
+               return this.age += one
+            },
+            substract:function(ten){
+               return this.age -= ten
+            },
+            XY:function(xx){
+                this.x = xx.offsetX
+                this.y = xx.offsetY
+            },
+            // stopmove:function(xx){
+            //     xx.stopPropagation()
+            // }
+            alert:function(){
+                alert('hello world')
+            }
+
+        }
+
+    })
+
+/*
+  * stopPropagation :阻止冒泡事件触发
+  * v-on:mousemove.stop :阻止冒泡事件触发
+  * v-on:click.once :只能点击一次
+  * prevent :阻止事件点击的修饰符
+*/
+</script>
+</html>

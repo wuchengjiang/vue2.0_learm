@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="vue-app">
+       <h1>Name:{{name}}</h1>
+       <p>Job:{{job}}</p>
+       <h1>{{greet('love')}}</h1>
+       <a v-bind:href="website">网站导航</a>
+       <input type="text" v-bind:value="name">
+       <p v-html="websiteTag"></p>
+    </div>
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#vue-app',
+        data:{
+            name:'村长',
+            job:'web开发',
+            website:'http://www.baidu.com',
+            websiteTag:"<a href='http://www.baidu.com'>newstep</a>"
+        },
+
+        methods:{ 
+            greet:function(time){
+                return "hello" + ' ' + time + " " + 'cunzhang'
+            }
+        },
+    });
+
+/*
+ * v-bind:   属性绑定
+ * v-html:   绑定html标签
+*/
+</script>
+</html>

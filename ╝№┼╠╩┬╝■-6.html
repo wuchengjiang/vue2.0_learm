@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="vue-app">
+        <h1>键盘</h1>
+        <label for="">姓名:</label>
+        <input type="text" v-on:keyup="logName">
+        <input type="text" v-on:keyup.enter="logName">
+        <input type="text" v-on:keyup.alt.enter="logName">
+        <label for="">年龄:</label>
+        <input type="text" v-on:keyup="logAge">
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#vue-app',
+        data:{
+
+        },
+        methods:{
+            logName:function(){
+                console.log('name:')
+            },
+            logAge:function(){
+                console.log('age:')
+            },
+        }
+    })
+    /*
+     *keyup:键盘修饰符,当键盘输入的时候都会触发
+     *keyup.enter:当回车的时候，才会触发
+     *keyup.alt.enter：当按住alt+enter的时候才会触发
+    */
+</script>
+
+
+
+
+</html>

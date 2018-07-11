@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="vue-app">
+        <h1> v-for循环</h1>
+        <!--数组下标-->
+        {{characters[0]}}
+        {{characters[1]}}
+        {{characters[2]}}
+
+        <!--数组遍历-->
+        <ul>
+            <li v-for="y in characters">
+                {{y}}
+            </li>
+        </ul>
+
+        <!--字典遍历-->
+        <ul>
+            <li v-for="x in users">
+              {{x.name}}-{{x.age}}
+            </li>
+        </ul>
+
+
+        <!--字典下标遍历-->
+        <ul>
+            <li v-for="(x,index) in users">
+                {{index+1}}. {{x.name}}-{{x.age}}
+            </li>
+        </ul>
+
+        <template v-for="(x,index) in users">
+            <h3>{{index}} . {{x.name}}</h3>
+            <p>age: {{x.age}}</p>
+        </template>
+
+
+        <template v-for="(x,index) in users">
+            <div v-for="(value,key) in x">
+                <p>{{key}} - {{value}}</p>
+            </div>
+        </template>
+
+    </div>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#vue-app',
+        data:{
+            characters:['lisi','cunzhang','laowang'],
+            users:[
+                {name:'hernry',age:30},
+                {name:'lisi',age:20},
+                {name:'asd',age:300},
+            ]
+        }
+    })
+</script>
+</html>

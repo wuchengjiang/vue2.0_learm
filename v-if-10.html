@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="vue-app">
+        <h1>v-if 条件</h1>
+        <button v-on:click="error = !error">显示 Error</button>
+        <button v-on:click="success = !success">显示 Success</button>
+        <!-- <p v-if="error">网络连接错误: 404</p>
+        <p v-else-if="success">网络连接成功: 200</p> -->
+
+
+        <p v-show="error">网络连接错误: 404</p>
+        <p v-show="success">网络连接成功: 200</p>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#vue-app',
+        data:{
+            error:false,
+            success:false
+        },
+        methods:{
+
+        },
+        computed:{
+
+        },
+    })
+    /*
+    v-show:相当于display-none
+
+    */
+</script>
+</html>

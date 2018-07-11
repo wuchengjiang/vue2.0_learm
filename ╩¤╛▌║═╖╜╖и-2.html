@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="vue-app">
+       <h1>Name:{{name}}</h1>
+       <p>Job:{{job}}</p>
+       <!-- <h1>{{greet()}}</h1> -->
+       <h1>{{greet('love')}}</h1>
+    </div>
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#vue-app',
+        data:{
+            name:'村长',
+            job:'web开发'
+        },
+        // methods:{  /*方法不传值 */
+        //     greet:function(){
+        //         return 'hello cunzhang'
+            
+        // }
+        methods:{ /* 方法传值 */
+            greet:function(time){
+                return "hello" + ' ' + time + " " + 'cunzhang'
+            }
+        }
+    });
+
+/*
+ * methods 方法：固定写法,可以传值,用于存储各种方法
+*/
+</script>
+</html>

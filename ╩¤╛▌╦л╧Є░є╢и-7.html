@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="vue-app">
+        <h1>双向数据绑定 /input /select /textarea</h1>
+        <label for="">姓名:</label>
+        <!-- <input ref="name" type="text" v-on:keyup="logName"> 也可以双向绑定 -->
+        <input  type="text" v-model='name' >
+        <span>{{name}}</span>
+        <label for="">年龄:</label>
+        <!-- <input ref="age" type="text" v-on:keyup="logAge"> 也中以双向绑定 -->
+        <input  type="text" v-model='age'>
+        <span>{{age}}</span>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#vue-app',
+        data:{
+            name:"",
+            age:""
+        },
+        // methods:{
+        //     logName:function(){
+        //        this.name = this.$refs.name.value;
+        //     console.log(this.$refs.name.value)
+        //     },
+        //     logAge:function(){
+        //         console.log('age:')
+        //         this.age = this.$refs.age.value;
+        //     },
+        // }
+    })
+    /*
+        注意：注释掉的为第一种方法绑定
+        1.通过 v-model="你要绑定的值"，这种不用写方法就可以双向绑定
+        2.通过ref也可以实现双向绑定，但是要写方法
+    */
+</script>
+
+
+
+
+</html>
